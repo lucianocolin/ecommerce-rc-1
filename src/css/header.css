@@ -7,12 +7,13 @@
     --green: #00A650;
     --purple: #3f2f59; 
     --purple2: #5e4485;
+    --blue1: 	#1E90FF;
 }
 
 .header {
-    background-color: var(--green);
+    background-color: var(--blue1);
 }
 
 .header a {
-    color: var(--white);
+    color: var(--black);
 }
