@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Table } from "react-bootstrap";
 //css
 import '../css/Admin/AdminProducts.css';
+import AdminProductsContext from '../context/admin/products/AdminProductsContext';
+import AdminProductsList from "../components/entities/admin/AdminProductsList";
 
 const AdminProducts = () => {
+
+  const { products, getProducts } = useContext(AdminProductsContext);
+
+  useEffect(()=>{
+    getProducts();
+  }, []);
+
+  useEffect(()=>{
+    console.log('productos=>', products)
+  }, [products])
+
   return (
     <>
       <h1>Productos - ADMIN</h1>
@@ -22,15 +35,13 @@ const AdminProducts = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+              {
+                products.map((product, index)=>(
+                  <AdminProductsList 
+                  data={product}
+                  key={index} />
+                ))
+              }
           </tbody>
         </Table>
       </div>
