@@ -17,7 +17,8 @@ const AdminProductsProvider = ({ children }) => {
 
   const getProducts = async () =>{
     try {
-      const res = await clientAxios.get('http://localhost:4000/api/v1/product');
+      const res = await clientAxios.get('/product');
+      console.log('Hola', res.data)
       res && setValues({ ...values, products: res.data.products });
     } catch (error) {
       throw error;

@@ -8,7 +8,7 @@ import AdminProductsList from "../components/entities/admin/AdminProductsList";
 const AdminProducts = () => {
 
   const { products, getProducts } = useContext(AdminProductsContext);
-
+  
   useEffect(()=>{
     getProducts();
   }, []);
