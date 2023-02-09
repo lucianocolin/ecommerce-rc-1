@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 //css
 import '../css/Admin/AdminProducts.css';
 import AdminProductsContext from '../context/admin/products/AdminProductsContext';
 import AdminProductsList from "../components/entities/admin/AdminProductsList";
+//modals
+import DeleteProductsModal from "../components/entities/admin/modals/DeleteProductsModal";
 
 const AdminProducts = () => {
 
@@ -13,9 +15,11 @@ const AdminProducts = () => {
     getProducts();
   }, []);
 
-  useEffect(()=>{
-    console.log('productos=>', products)
-  }, [products])
+  const [showDeleteProductModal, setShowDeleteProductModal] = useState(false);
+
+  const openDeleteProductModal = () =>{
+    setShowDeleteProductModal(true)
+  };
 
   return (
     <>
@@ -39,12 +43,17 @@ const AdminProducts = () => {
                 products.map((product, index)=>(
                   <AdminProductsList 
                   data={product}
-                  key={index} />
+                  key={index}
+                  openDeleteModal={openDeleteProductModal} />
                 ))
               }
           </tbody>
         </Table>
       </div>
+
+      <DeleteProductsModal 
+        show={showDeleteProductModal}
+        onHide={()=> setShowDeleteProductModal(false)} />
     </>
   );
 };
