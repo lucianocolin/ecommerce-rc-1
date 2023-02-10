@@ -15,7 +15,7 @@ const AdminProductsProvider = ({ children }) => {
 
   const [values, setValues] = useState(initialValues);
 
-  const getProducts = async () =>{
+  const getProducts = async () => {
     try {
       const res = await clientAxios.get('/product');
       console.log('Hola', res.data)
@@ -25,10 +25,25 @@ const AdminProductsProvider = ({ children }) => {
     }
   };
 
+  const getProductsByProdSearched = async prodSearched => {
+    try {
+      const res = await clientAxios.get('/product');
+      if (res.status === 201) {
+        setValues({
+          ...values,
+          products: res.data.products.filter(p => p.name.toLowerCase().includes(prodSearched.toLowerCase()))
+        });
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
   return (
     <AdminProductsContext.Provider value={{
       ...values,
-      getProducts
+      getProducts,
+      getProductsByProdSearched
     }}>
       {children}
     </AdminProductsContext.Provider>

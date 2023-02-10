@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
+import AdminProductsContext from '../../context/admin/products/AdminProductsContext';
 
 const NavbarSearch = () => {
+
+    const navigate = useNavigate();
+
+    const { getProductsByProdSearched } = useContext(AdminProductsContext);
 
     const initialFormValues = {
         textSearched: ''
@@ -22,7 +28,9 @@ const NavbarSearch = () => {
 
     const executeSearch = () => {
         if (!textSearched) return;
-        // redireccionar a pagina de resultados de busqueda
+        getProductsByProdSearched(textSearched);
+        // reveer url (Colin)
+        navigate('/products');
     };
 
     return (
