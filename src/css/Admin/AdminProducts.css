@@ -3,6 +3,10 @@ h1{
   text-align: center;
 }
 
+th{
+  text-align: center;
+}
+
 .admin-products-table-container{
   width: 100%;
   display: flex;

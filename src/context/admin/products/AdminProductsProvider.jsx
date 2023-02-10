@@ -18,17 +18,36 @@ const AdminProductsProvider = ({ children }) => {
   const getProducts = async () =>{
     try {
       const res = await clientAxios.get('/product');
-      console.log('Hola', res.data)
       res && setValues({ ...values, products: res.data.products });
     } catch (error) {
       throw error;
     }
   };
 
+  const getProduct = async (productId) =>{
+    try {
+      const res = await clientAxios.get(`/product/${productId}`);
+      res && setValues({ ...values, currentProduct: res.data.product });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  const deleteProduct = async (productId) =>{
+    try {
+      const res = await clientAxios.delete(`/product/${productId}`);
+      res && getProducts();
+    } catch (error) {
+      throw error;
+    }
+  }
+
   return (
     <AdminProductsContext.Provider value={{
       ...values,
-      getProducts
+      getProducts,
+      getProduct,
+      deleteProduct
     }}>
       {children}
     </AdminProductsContext.Provider>
