@@ -27,7 +27,7 @@ const NavbarSearch = () => {
     };
 
     const executeSearch = () => {
-        if (!textSearched) return;
+        if (!textSearched || textSearched.length < 4) return;
         getProductsByProdSearched(textSearched);
         // reveer url (Colin)
         navigate('/products');
