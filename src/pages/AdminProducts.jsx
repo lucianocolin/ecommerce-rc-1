@@ -1,32 +1,43 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 //css
-import '../css/Admin/AdminProducts.css';
-import AdminProductsContext from '../context/admin/products/AdminProductsContext';
+import "../css/Admin/AdminProducts.css";
+import AdminProductsContext from "../context/admin/products/AdminProductsContext";
 import AdminProductsList from "../components/entities/admin/AdminProductsList";
 //modals
 import DeleteProductsModal from "../components/entities/admin/modals/DeleteProductsModal";
+import CreateProductModal from "../components/entities/admin/modals/CreateProductModal";
 
 const AdminProducts = () => {
-
   const { products, getProducts } = useContext(AdminProductsContext);
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     getProducts();
   }, []);
 
   const [showDeleteProductModal, setShowDeleteProductModal] = useState(false);
+  const [showCreateProductModal, setShowCreateProductModal] = useState(false);
 
-  const openDeleteProductModal = () =>{
-    setShowDeleteProductModal(true)
+  const openDeleteProductModal = () => {
+    setShowDeleteProductModal(true);
   };
 
   return (
     <>
-      <h1>Productos - ADMIN</h1>
+      <div className="admin-products-title-container">
+        <h1>Productos - ADMIN</h1>
+        <Button size="md" className="add-product-btn" onClick={()=> setShowCreateProductModal(true) }>
+          Añadir Producto
+        </Button>
+      </div>
       <div className="admin-products-table-container">
-        <Table striped bordered hover variant="dark"
-          className="admin-products-table" >
+        <Table
+          striped
+          bordered
+          hover
+          variant="dark"
+          className="admin-products-table"
+        >
           <thead className="admin-products-table-head">
             <tr>
               <th>Nombre</th>
@@ -39,21 +50,26 @@ const AdminProducts = () => {
             </tr>
           </thead>
           <tbody>
-              {
-                products.map((product, index)=>(
-                  <AdminProductsList 
-                  data={product}
-                  key={index}
-                  openDeleteModal={openDeleteProductModal} />
-                ))
-              }
+            {products.map((product, index) => (
+              <AdminProductsList
+                data={product}
+                key={index}
+                openDeleteModal={openDeleteProductModal}
+              />
+            ))}
           </tbody>
         </Table>
       </div>
 
-      <DeleteProductsModal 
+      <DeleteProductsModal
         show={showDeleteProductModal}
-        onHide={()=> setShowDeleteProductModal(false)} />
+        onHide={() => setShowDeleteProductModal(false)}
+      />
+
+      <CreateProductModal
+        show={showCreateProductModal}
+        onHide={() => setShowCreateProductModal(false)}
+      />
     </>
   );
 };
