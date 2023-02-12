@@ -1,0 +1,36 @@
+h1{
+  text-align: center;
+}
+
+.admin-products-title-container{
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.add-product-btn{
+  height: 3rem;
+}
+
+th{
+  text-align: center;
+}
+
+.admin-products-table-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-products-table{
+  font-size: 1.1rem;
+  margin: 2rem;
+  width: 80% !important;
+}
+
+.admin-products-table-head{
+  font-size: 1.2rem;
+}
