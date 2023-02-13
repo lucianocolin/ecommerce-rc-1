@@ -7,6 +7,7 @@ import AdminProductsList from "../components/entities/admin/AdminProductsList";
 //modals
 import DeleteProductsModal from "../components/entities/admin/modals/DeleteProductsModal";
 import CreateProductModal from "../components/entities/admin/modals/CreateProductModal";
+import EditProductModal from "../components/entities/admin/modals/EditProductModal";
 
 const AdminProducts = () => {
   const { products, getProducts } = useContext(AdminProductsContext);
@@ -17,9 +18,14 @@ const AdminProducts = () => {
 
   const [showDeleteProductModal, setShowDeleteProductModal] = useState(false);
   const [showCreateProductModal, setShowCreateProductModal] = useState(false);
+  const [showEditProductModal, setShowEditProductModal] = useState(false);
 
   const openDeleteProductModal = () => {
     setShowDeleteProductModal(true);
+  };
+
+  const openEditProductModal = () =>{
+    setShowEditProductModal(true);
   };
 
   return (
@@ -55,6 +61,7 @@ const AdminProducts = () => {
                 data={product}
                 key={index}
                 openDeleteModal={openDeleteProductModal}
+                openEditProductModal={openEditProductModal}
               />
             ))}
           </tbody>
@@ -70,6 +77,10 @@ const AdminProducts = () => {
         show={showCreateProductModal}
         onHide={() => setShowCreateProductModal(false)}
       />
+
+      <EditProductModal 
+        show={showEditProductModal}
+        onHide={()=> setShowEditProductModal(false)} />
     </>
   );
 };
