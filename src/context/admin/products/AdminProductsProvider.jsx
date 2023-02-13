@@ -42,6 +42,15 @@ const AdminProductsProvider = ({ children }) => {
     }
   }
 
+  const updateProduct = async product =>{
+    try {
+      const res = await clientAxios.put(`/product/${product._id}`, product);
+      res && getProducts();
+    } catch (error) {
+      throw error;
+    }
+  }
+
   const deleteProduct = async (productId) =>{
     try {
       const res = await clientAxios.delete(`/product/${productId}`);
@@ -56,8 +65,9 @@ const AdminProductsProvider = ({ children }) => {
       ...values,
       getProducts,
       getProduct,
-      deleteProduct,
-      createProduct
+      createProduct,
+      updateProduct,
+      deleteProduct
     }}>
       {children}
     </AdminProductsContext.Provider>
