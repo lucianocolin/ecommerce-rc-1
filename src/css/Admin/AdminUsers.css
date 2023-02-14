@@ -1,0 +1,13 @@
+.admin-users-title{
+  padding: 3rem 0 1rem;
+}
+
+.admin-users-table-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-users-table{
+  width: 70%;
+}

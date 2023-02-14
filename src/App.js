@@ -6,6 +6,7 @@ import FavouritesPage from './pages/FavouritesPage';
 import ParentContext from './context/ParentContext';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Layout from './components/common/Layout';
+import AdminUsers from './pages/AdminUsers';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/favourites' element={<FavouritesPage />} />
               <Route path='/admin-products' element={<AdminProducts />} />
+              <Route path='/admin-users' element={<AdminUsers />} />
             </Routes>
           </Layout>
         </Router>

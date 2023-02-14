@@ -26,7 +26,7 @@ const AdminProductsList = ({ data, openDeleteModal, openEditProductModal }) => {
         <td>{isInOffer(data.isInOffer)}</td>
         <td className="admin-products-list-btn-section">
           <Button
-            variant="success"
+            variant="info"
             onClick={() => {
               getProduct(data._id);
               openEditProductModal();
