@@ -33,6 +33,24 @@ const AdminProductsProvider = ({ children }) => {
     }
   }
 
+  const createProduct = async product =>{
+    try {
+      const res = await clientAxios.post('/product', product);
+      res && setValues({ ...values, products: [...values.products, res.data.product] })
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  const updateProduct = async product =>{
+    try {
+      const res = await clientAxios.put(`/product/${product._id}`, product);
+      res && getProducts();
+    } catch (error) {
+      throw error;
+    }
+  }
+
   const deleteProduct = async (productId) =>{
     try {
       const res = await clientAxios.delete(`/product/${productId}`);
@@ -47,6 +65,8 @@ const AdminProductsProvider = ({ children }) => {
       ...values,
       getProducts,
       getProduct,
+      createProduct,
+      updateProduct,
       deleteProduct
     }}>
       {children}

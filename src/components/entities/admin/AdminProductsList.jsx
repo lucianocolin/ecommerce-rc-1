@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import AdminProductsContext from "../../../context/admin/products/AdminProductsContext";
 //css
 import "../../../css/Admin/AdminProductsList.css";
 
-const AdminProductsList = ({ data, openDeleteModal }) => {
+const AdminProductsList = ({ data, openDeleteModal, openEditProductModal }) => {
   const isInOffer = (value) => {
     if (value === true) {
       return "Sí";
@@ -25,12 +25,22 @@ const AdminProductsList = ({ data, openDeleteModal }) => {
         <td>{data.category}</td>
         <td>{isInOffer(data.isInOffer)}</td>
         <td className="admin-products-list-btn-section">
-          <Button onClick={() => getProduct(data._id)}>Editar</Button>
-          <Button 
-            variant="danger" 
+          <Button
+            variant="success"
             onClick={() => {
-              getProduct(data._id) 
-              openDeleteModal(); }} >
+              getProduct(data._id);
+              openEditProductModal();
+            }}
+          >
+            Editar
+          </Button>
+          <Button
+            variant="danger"
+            onClick={() => {
+              getProduct(data._id);
+              openDeleteModal();
+            }}
+          >
             Eliminar
           </Button>
         </td>
