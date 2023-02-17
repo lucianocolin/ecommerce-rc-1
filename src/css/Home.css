@@ -1,0 +1,35 @@
+.home-slider-section{
+  width: 100%;
+  height: 70vh;
+  background-image: url('../imgs/pattern.jpg');
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-offer-title{
+  font-size: 6rem;
+  font-family: 'Bebas Neue';
+  color: white;
+  text-shadow: 1px 1px 10px black;
+}
+
+.home-offers-slider{
+  width: 65%;
+  padding: 0;
+}
+
+.home-offers-slider-item{
+  height: 50vh;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between !important;
+  background-color: #1E90FF;
+}
+
+.home-offers-slider-img{
+  padding: 0;
+  margin: 0;
+  width: 31%;
+}
