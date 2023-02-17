@@ -13,7 +13,7 @@ const CreateProductModal = ({ show, onHide }) => {
     brand: 'Adidas',
     price: '',
     stock: '',
-    category: 'Consolas',
+    category: 'Indumentaria',
     isInOffer: false
   }
 
@@ -32,6 +32,7 @@ const CreateProductModal = ({ show, onHide }) => {
     e.preventDefault();
     createProduct(form);
     onHide();
+    setForm(initialFormValues);
   }
 
   return (
@@ -66,8 +67,13 @@ const CreateProductModal = ({ show, onHide }) => {
                value={brand}
                onChange={handleChange} >
                 <option value="Adidas">Adidas</option>
-                <option value="Beats">Beats</option>
-                <option value="Playstation">Playstation</option>
+                <option value="Kappa">Kappa</option>
+                <option value="Beats">Nike</option>
+                <option value="Playstation">Puma</option>
+                <option value="Reebok">Reebok</option>
+                <option value="Topper">Topper</option>
+                <option value="Umbro">Umbro</option>
+                <option value="Under Armour">Under Armour</option>
               </Form.Select>
             </Form.Group>
 
@@ -102,8 +108,8 @@ const CreateProductModal = ({ show, onHide }) => {
                 className="create-product-modal-input"
                 value={category}
                 onChange={handleChange} >
-                  <option value="Consolas">Consolas</option>
-                  <option value="Audio y Video">Audio y Video</option>
+                  <option value="Indumentaria">Indumentaria</option>
+                  <option value="Calzado">Calzado</option>
               </Form.Select>
             </Form.Group>
 
