@@ -24,6 +24,7 @@ const AdminProductsList = ({ data, openDeleteModal, openEditProductModal }) => {
         <td>{data.stock}</td>
         <td>{data.category}</td>
         <td>{isInOffer(data.isInOffer)}</td>
+        <td>{'$' + data.offerPrice}</td>
         <td className="admin-products-list-btn-section">
           <Button
             variant="info"
