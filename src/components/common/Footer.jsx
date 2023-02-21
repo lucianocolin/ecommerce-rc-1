@@ -22,17 +22,17 @@ const Footer = () => {
                                 <ul>
                                     <li>
                                         <a href="https://facebook.com" target="_blank" rel="nofollow noopener noreferer">
-                                            <FontAwesomeIcon icon={faF} />
+                                            <FontAwesomeIcon icon={faF} size="xl" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="https://twitter.com" target="_blank" rel="nofollow noopener noreferer">
-                                            <FontAwesomeIcon icon={faDove} />
+                                            <FontAwesomeIcon icon={faDove} size="xl" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="https://instagram.com" target="_blank" rel="nofollow noopener noreferer">
-                                            <FontAwesomeIcon icon={faCameraRetro} />
+                                            <FontAwesomeIcon icon={faCameraRetro} size="xl" />
                                         </a>
                                     </li>
                                 </ul>
