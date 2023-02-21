@@ -14,12 +14,13 @@ const CreateProductModal = ({ show, onHide }) => {
     price: '',
     stock: '',
     category: 'Indumentaria',
-    isInOffer: false
+    isInOffer: false,
+    offerPrice: ''
   }
 
   const [form, setForm] = useState(initialFormValues);
 
-  const { name, brand, price, stock, category, isInOffer } = form;
+  const { name, brand, price, stock, category, isInOffer, offerPrice } = form;
 
   const handleChange = e =>{
     setForm({
@@ -34,6 +35,8 @@ const CreateProductModal = ({ show, onHide }) => {
     onHide();
     setForm(initialFormValues);
   }
+
+  /* const [isDisabled, setIsDisabled] = useState(true) */
 
   return (
     <>
@@ -107,7 +110,7 @@ const CreateProductModal = ({ show, onHide }) => {
                 name='category'
                 className="create-product-modal-input"
                 value={category}
-                onChange={handleChange} >
+                onChange={handleChange}  >
                   <option value="Indumentaria">Indumentaria</option>
                   <option value="Calzado">Calzado</option>
               </Form.Select>
@@ -123,6 +126,18 @@ const CreateProductModal = ({ show, onHide }) => {
                 <option value={false}>No</option>
                 <option value={true}>Si</option>
               </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Precio de oferta</Form.Label>
+              <Form.Control
+                type="number"
+                name="offerPrice"
+                placeholder="Indique el precio de oferta"
+                className="create-product-modal-input"
+                value={offerPrice}
+                onChange={handleChange}
+                /* disabled={isDisabled} */ />
             </Form.Group>
         </Modal.Body>
         <Modal.Footer>

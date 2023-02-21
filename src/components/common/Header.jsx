@@ -9,7 +9,7 @@ import {  faGlobe, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import NavbarSearch from './NavbarSearch';
 
 const Header = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     const goToPage = page => {
         navigate(page);
