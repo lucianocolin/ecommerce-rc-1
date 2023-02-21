@@ -1,37 +1,43 @@
 import React from 'react';
 import "../../css/footer.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus, faFacebook, faTwitter, faInstagram } from "@fortawesome/free-solid-svg-icons";
+import { faCameraRetro, faDove, faF, faCopyright } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     return (
         <>
             <footer class="footer">
                 <div class="wrap-footer">
-                    <div class="text-element-footer element-footer">
-                        <h3 class="main-c">RC3 Shop</h3>
-                        <p>Un nuevo concepto en moda y estilo.</p>
-                        <p>Decile chau al “no tengo que ponerme”</p>
-                    </div>
-                    <div class="rrss-element-footer element-footer">
-                        <h5>Redes Sociales</h5>
-                        <ul>
-                            <li>
-                                <a href="https://facebook.com" target="_blank" rel="nofollow noopener noreferer">
-                                    <FontAwesomeIcon icon={faCartPlus} />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com" target="_blank" rel="nofollow noopener noreferer">
-                                    <FontAwesomeIcon icon={faCartPlus} />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://instagram.com" target="_blank" rel="nofollow noopener noreferer">
-                                    <FontAwesomeIcon icon={faCartPlus} />
-                                </a>
-                            </li>
-                        </ul>
+                    <div className="row">
+                        <div className="col-6">
+                            <div class="text-element-footer element-footer">
+                                <h4 class="main-c">RC3 Shop</h4>
+                                Un nuevo concepto en moda y estilo.
+                                <p>Decile chau al “no tengo que ponerme”</p>
+                            </div>
+                        </div>
+                        <div className="col-6 d-flex justify-content-end mb-1">
+                            <div className='rrss-element-footer element-footer'>
+                                <h5>Redes Sociales</h5>
+                                <ul>
+                                    <li>
+                                        <a href="https://facebook.com" target="_blank" rel="nofollow noopener noreferer">
+                                            <FontAwesomeIcon icon={faF} />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://twitter.com" target="_blank" rel="nofollow noopener noreferer">
+                                            <FontAwesomeIcon icon={faDove} />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com" target="_blank" rel="nofollow noopener noreferer">
+                                            <FontAwesomeIcon icon={faCameraRetro} />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="footer-creds">
