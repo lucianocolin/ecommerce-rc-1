@@ -68,10 +68,26 @@
   box-shadow: 1px 1px 5px black;
 }
 
-.home-offers-slider-price{
+.home-offers-slider-previous-price{
   position: absolute;
   bottom: 0;
   left: 1.5rem;
+  width: auto;
+  height: auto;
+  padding: 0.4rem 1rem;
+  font-size: 1.5rem;
+  background-color: white;
+  color: white;
+  border-radius: 1rem;
+  background-color: red;
+  text-decoration: line-through;
+  box-shadow: 1px 1px 5px black;
+}
+
+.home-offers-slider-price{
+  position: absolute;
+  bottom: 0;
+  left: 9rem;
   width: auto;
   height: auto;
   padding: 0.4rem 1rem;
