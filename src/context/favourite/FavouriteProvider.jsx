@@ -16,7 +16,7 @@ const FavouriteProvider = ({ children }) => {
 
         }}>
             {children}
-        </FavouriteContext.Provider>
+        </FavouriteContext.Provider> 
     );
 };
 

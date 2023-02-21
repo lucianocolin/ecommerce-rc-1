@@ -15,7 +15,7 @@ const AdminProductsProvider = ({ children }) => {
 
   const [values, setValues] = useState(initialValues);
 
-  const getProducts = async () =>{
+  const getProducts = async () => {
     try {
       const res = await clientAxios.get('/product');
       res && setValues({ ...values, products: res.data.products });
@@ -24,7 +24,7 @@ const AdminProductsProvider = ({ children }) => {
     }
   };
 
-  const getProduct = async (productId) =>{
+  const getProduct = async (productId) => {
     try {
       const res = await clientAxios.get(`/product/${productId}`);
       res && setValues({ ...values, currentProduct: res.data.product });
@@ -33,7 +33,21 @@ const AdminProductsProvider = ({ children }) => {
     }
   }
 
-  const createProduct = async product =>{
+  const getProductsByProdSearched = async prodSearched => {
+    try {
+      const res = await clientAxios.get('/product');
+      if (res.status === 201) {
+        setValues({
+          ...values,
+          products: res.data.products.filter(p => p.name.toLowerCase().includes(prodSearched.toLowerCase()))
+        });
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  const createProduct = async product => {
     try {
       const res = await clientAxios.post('/product', product);
       res && setValues({ ...values, products: [...values.products, res.data.product] })
@@ -42,7 +56,7 @@ const AdminProductsProvider = ({ children }) => {
     }
   }
 
-  const updateProduct = async product =>{
+  const updateProduct = async product => {
     try {
       const res = await clientAxios.put(`/product/${product._id}`, product);
       res && getProducts();
@@ -51,7 +65,7 @@ const AdminProductsProvider = ({ children }) => {
     }
   }
 
-  const deleteProduct = async (productId) =>{
+  const deleteProduct = async (productId) => {
     try {
       const res = await clientAxios.delete(`/product/${productId}`);
       res && getProducts();
@@ -67,7 +81,8 @@ const AdminProductsProvider = ({ children }) => {
       getProduct,
       createProduct,
       updateProduct,
-      deleteProduct
+      deleteProduct,
+      getProductsByProdSearched
     }}>
       {children}
     </AdminProductsContext.Provider>
