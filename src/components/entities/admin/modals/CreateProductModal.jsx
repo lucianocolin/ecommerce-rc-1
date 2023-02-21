@@ -14,8 +14,10 @@ const CreateProductModal = ({ show, onHide }) => {
     price: '',
     stock: '',
     category: 'Indumentaria',
+
     isInOffer: false,
     offerPrice: ''
+
   }
 
   const [form, setForm] = useState(initialFormValues);
@@ -110,7 +112,9 @@ const CreateProductModal = ({ show, onHide }) => {
                 name='category'
                 className="create-product-modal-input"
                 value={category}
+
                 onChange={handleChange}  >
+
                   <option value="Indumentaria">Indumentaria</option>
                   <option value="Calzado">Calzado</option>
               </Form.Select>

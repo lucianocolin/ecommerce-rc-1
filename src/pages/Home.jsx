@@ -1,4 +1,5 @@
 
+
 import React, { useContext, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import selesion1 from "../imgs/selesion1.jpg";
@@ -24,6 +25,7 @@ const Home = () => {
       <div className="home-slider-section">
         <h1 className="home-offer-title">OFERTAS</h1>
         <Carousel className="home-offers-slider">
+
           {
             products.filter(product => product.isInOffer === true)
               .map((product, index)=>(
@@ -42,6 +44,7 @@ const Home = () => {
             ))
           }
           </Carousel>
+
       </div>
     </>
   );
