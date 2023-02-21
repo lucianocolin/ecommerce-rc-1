@@ -38,9 +38,6 @@ footer{
   .element-footer h5{
     margin: 1rem 0;
   }
-  .text-element-footer li{
-    line-height: 2;
-  }
   .rrss-element-footer ul{
     display: flex;
     flex-flow: wrap;

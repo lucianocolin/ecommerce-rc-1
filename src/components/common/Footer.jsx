@@ -1,17 +1,17 @@
 import React from 'react';
 import "../../css/footer.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCameraRetro, faDove, faF, faCopyright } from "@fortawesome/free-solid-svg-icons";
+import { faCameraRetro, faDove, faF } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     return (
         <>
-            <footer class="footer">
-                <div class="wrap-footer">
+            <footer className="footer">
+                <div className="wrap-footer">
                     <div className="row">
                         <div className="col-6">
-                            <div class="text-element-footer element-footer">
-                                <h4 class="main-c">RC3 Shop</h4>
+                            <div className="text-element-footer element-footer">
+                                <h4 className="main-c">RC3 Shop</h4>
                                 Un nuevo concepto en moda y estilo.
                                 <p>Decile chau al “no tengo que ponerme”</p>
                             </div>
@@ -40,11 +40,11 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div class="footer-creds">
-                    <div class="copy-creds">
+                <div className="footer-creds">
+                    <div className="copy-creds">
                         <p>©2022 · Todos los derechos reservados.</p>
                     </div>
-                    <div class="legal-creds">
+                    <div className="legal-creds">
                         <ul>
                             <li><a href="/politica-privacidad">Política de Privacidad</a></li>
                             <li><a href="/politica-cookies">Política de Cookies</a></li>
