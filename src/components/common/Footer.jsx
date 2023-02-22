@@ -12,13 +12,13 @@ const Footer = () => {
                         <div className="col-6">
                             <div className="text-element-footer element-footer">
                                 <h4 className="main-c">RC3 Shop</h4>
-                                Un nuevo concepto en moda y estilo.
-                                <p>Decile chau al “no tengo que ponerme”</p>
+                                A new concept in fashion and style.
+                                <p>Say goodbye to "I don't have to wear"</p>
                             </div>
                         </div>
                         <div className="col-6 d-flex justify-content-end mb-1">
                             <div className='rrss-element-footer element-footer'>
-                                <h5>Redes Sociales</h5>
+                                <h5>Social Networks</h5>
                                 <ul>
                                     <li>
                                         <a href="https://facebook.com" target="_blank" rel="nofollow noopener noreferer">
@@ -42,13 +42,13 @@ const Footer = () => {
                 </div>
                 <div className="footer-creds">
                     <div className="copy-creds">
-                        <p>©2022 · Todos los derechos reservados.</p>
+                        <p>©2022 · All rights reserved.</p>
                     </div>
                     <div className="legal-creds">
                         <ul>
-                            <li><a href="/politica-privacidad">Política de Privacidad</a></li>
-                            <li><a href="/politica-cookies">Política de Cookies</a></li>
-                            <li><a href="/aviso-legal">Aviso Legal</a></li>
+                            <li><a href="/">Privacy Policy</a></li>
+                            <li><a href="/">Cookies Policy</a></li>
+                            <li><a href="/">Legal Notice</a></li>
                         </ul>
                     </div>
                 </div>
