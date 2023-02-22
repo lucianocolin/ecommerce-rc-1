@@ -52,6 +52,7 @@ const AdminProducts = () => {
               <th>Stock</th>
               <th>Categoría</th>
               <th>¿Está en oferta?</th>
+              <th>Precio de oferta</th>
               <th>Acciones</th>
             </tr>
           </thead>

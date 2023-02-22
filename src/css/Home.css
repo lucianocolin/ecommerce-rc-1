@@ -1,0 +1,106 @@
+.home-slider-section{
+  width: 100%;
+
+  height: 65vh;
+  background-image: url('../imgs/pattern.jpg');
+  background-size: cover;
+
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-offer-title{
+  font-size: 6rem;
+  font-family: 'Bebas Neue';
+  color: white;
+  text-shadow: 1px 1px 10px black;
+}
+
+.home-offers-slider{
+  width: 65%;
+  padding: 0;
+}
+
+.home-offers-slider-item{
+
+  height: 45vh;
+
+  background-color: #1E90FF;
+}
+
+.home-offers-slider-img{
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.home-offers-slider-perc{
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+  width: auto;
+  padding: 0.4rem;
+  background-color: white;
+  color: white;
+  border-radius: 1rem;
+  background-color: #1E90FF;
+  box-shadow: 1px 1px 5px black;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.home-offers-slider-img img{
+  height: 100%;
+}
+
+.home-offers-slider-description{
+  position: absolute;
+  bottom: 4rem;
+  left: 1.5rem;
+  width: auto;
+  height: auto;
+  padding: 0.4rem 1rem;
+  font-size: 1.5rem;
+  background-color: white;
+  color: white;
+  border-radius: 1rem;
+  background-color: #1E90FF;
+  box-shadow: 1px 1px 5px black;
+}
+
+.home-offers-slider-previous-price{
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  width: auto;
+  height: auto;
+  padding: 0.4rem 1rem;
+  font-size: 1.5rem;
+  background-color: white;
+  color: white;
+  border-radius: 1rem;
+  background-color: red;
+  text-decoration: line-through;
+  box-shadow: 1px 1px 5px black;
+}
+
+.home-offers-slider-price{
+  position: absolute;
+  bottom: 0;
+  left: 9rem;
+  width: auto;
+  height: auto;
+  padding: 0.4rem 1rem;
+  font-size: 1.5rem;
+  background-color: white;
+  color: white;
+  border-radius: 1rem;
+  background-color: #00468b;
+  box-shadow: 1px 1px 5px black;
+
+}
