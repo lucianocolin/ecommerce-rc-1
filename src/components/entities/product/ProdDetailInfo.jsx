@@ -8,25 +8,25 @@ const ProdDetailInfo = () => {
 
     return (
         <>
-            <Card>
+            <Card className='py-2'>
                 <ListGroup variant="flush">
                     <ListGroup.Item>
-                        <h4>Model</h4>
+                        <h5>Model</h5>
                         <p>{currentProduct.name}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        <h4>Brand</h4>
+                        <h5>Brand</h5>
                         <p>{currentProduct.brand}</p>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        <h4>Price</h4>
+                        <h5>Price</h5>
                         <p>
                             ${currentProduct.offerPrice ?
                                 currentProduct.offerPrice : currentProduct.price}
                         </p>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        <h4>Is in Offer</h4>
+                        <h5>Is in Offer</h5>
                         {currentProduct.isInOffer ? 'True' : 'False'}
                     </ListGroup.Item>
                 </ListGroup>
