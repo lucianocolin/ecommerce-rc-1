@@ -9,7 +9,7 @@ const CommentProvider = ({ children }) => {
             {
                 description: "First comment",
                 isprivate: false,
-                fkProduct: 1,
+                productId: 1,
                 userSend: {
                     name: "Pedro",
                     userId: 1
@@ -18,7 +18,7 @@ const CommentProvider = ({ children }) => {
             {
                 description: "Second comment",
                 isprivate: false,
-                fkProduct: 1,
+                productId: 1,
                 userSend: {
                     name: "Jorge",
                     userId: 1
