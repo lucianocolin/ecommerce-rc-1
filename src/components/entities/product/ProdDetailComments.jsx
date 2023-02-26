@@ -21,9 +21,8 @@ const ProdDetailComments = () => {
     const { getCommentsByProdId, comments, getComment } = useContext(CommentContext);
 
     useEffect(() => {
-        //habilitar una vez conecte comentarios con db
-        //getCommentsByProdId(currentProduct.id);
-    }, [])
+        currentProduct._id && getCommentsByProdId(currentProduct._id);
+    }, [currentProduct._id])
 
     return (
         <>
@@ -45,7 +44,7 @@ const ProdDetailComments = () => {
                 </Card.Header>
                 <ListGroup variant="flush">
                     {
-                        comments ?
+                        comments && comments.length > 0 ?
                             comments.map((comment, index) => (
                                 <ProductComment
                                     comment={comment}
@@ -55,7 +54,7 @@ const ProdDetailComments = () => {
                                 />
                             ))
                             :
-                            <h3>Without comments</h3>
+                            <div className='mx-3'>Without comments</div>
                     }
                 </ListGroup>
             </Card>

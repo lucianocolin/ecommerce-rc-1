@@ -1,10 +1,12 @@
 import { useState, useContext, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import CommentContext from '../../../../context/comment/CommentContext';
+import ProductContext from '../../../../context/admin/products/AdminProductsContext';
 
 const EditCommentModal = ({ show, onHide }) => {
 
     const { updateComment, currentComment } = useContext(CommentContext);
+    const { currentProduct } = useContext(ProductContext);
 
     const initialFormValues = {
         description: ''
@@ -16,8 +18,8 @@ const EditCommentModal = ({ show, onHide }) => {
     const [errorMsg, setErrorMsg] = useState(null);
 
     useEffect(() => {
-        setForm(currentComment);
-    }, [currentComment]);
+        currentComment._id && setForm(currentComment);
+    }, [currentComment._id]);
 
     const handleChange = e => {
         setForm({
@@ -33,7 +35,18 @@ const EditCommentModal = ({ show, onHide }) => {
             return;
         }
         setErrorMsg(null);
-        updateComment(form);
+        const comment = {
+            description: description,
+            isprivate: false,
+            productId: currentProduct._id,
+            // Pendiente añadir uso de middleware y quitar el userSend de aqui...
+            userSend: {
+                name: "Pedro",
+                userId: '6303d565758b3133c754f2ae'
+            },
+            _id: currentComment._id
+        }
+        updateComment(comment);
         onHide();
     };
 
@@ -57,7 +70,7 @@ const EditCommentModal = ({ show, onHide }) => {
                             <Form.Control
                                 type="text"
                                 placeholder="Description"
-                                name="descripcion"
+                                name="description"
                                 value={description}
                                 onChange={handleChange}
                                 onFocus={() => setErrorMsg(null)}

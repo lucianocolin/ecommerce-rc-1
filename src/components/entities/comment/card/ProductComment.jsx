@@ -20,7 +20,7 @@ const ProductComment = ({ comment, openEditModal, openDeleteModal }) => {
                                     variant="warning"
                                     className='me-2'
                                     onClick={() => {
-                                        getComment(comment.id);
+                                        getComment(comment._id);
                                         openEditModal();
                                     }}
                                 >
@@ -29,7 +29,7 @@ const ProductComment = ({ comment, openEditModal, openDeleteModal }) => {
                                 <Button
                                     variant="danger"
                                     onClick={() => {
-                                        getComment(comment.id);
+                                        getComment(comment._id);
                                         openDeleteModal();
                                     }}
                                 >

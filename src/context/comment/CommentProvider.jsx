@@ -5,26 +5,7 @@ import CommentContext from './CommentContext';
 const CommentProvider = ({ children }) => {
 
     const initialValues = {
-        comments: [
-            {
-                description: "First comment",
-                isprivate: false,
-                productId: 1,
-                userSend: {
-                    name: "Pedro",
-                    userId: 1
-                }
-            },
-            {
-                description: "Second comment",
-                isprivate: false,
-                productId: 1,
-                userSend: {
-                    name: "Jorge",
-                    userId: 1
-                }
-            }
-        ],
+        comments: [],
         currentComment: {}
     }
     const [values, setValues] = useState(initialValues);
@@ -32,7 +13,7 @@ const CommentProvider = ({ children }) => {
     const getComments = async () => {
         try {
             const res = await clientAxios.get('/comment');
-            res && setValues({ ...values, comments: res.data });
+            res && setValues({ ...values, comments: res.data.comments });
         } catch (error) {
             throw error;
         }
@@ -41,19 +22,19 @@ const CommentProvider = ({ children }) => {
     const getComment = async commentId => {
         try {
             const res = await clientAxios.get(`/comment/${commentId}`);
-            res && setValues({ ...values, currentComment: res.data });
+            res && setValues({ ...values, currentComment: res.data.comment });
         } catch (error) {
             throw error;
         }
     }
 
-    const getCommentsByProdId = async prodId => {
+    const getCommentsByProdId = async productId => {
         try {
-            const res = await clientAxios.get('/comment');
-            if (res.status === 201) {
+            const res = await clientAxios.get('/comment', { params: { productId: productId } });
+            if (res.status === 200) {
                 setValues({
                     ...values,
-                    comments: res.data.filter(comment => comment.fkProduct === prodId)
+                    comments: res.data.comments
                 });
             }
         } catch (error) {
@@ -64,7 +45,7 @@ const CommentProvider = ({ children }) => {
     const createComment = async comment => {
         try {
             const res = await clientAxios.post('/comment', comment);
-            res && setValues({ ...values, comments: [...values.comments, res.data.comment] })
+            res.status === 201 && getCommentsByProdId(comment.productId);
         } catch (error) {
             throw error;
         }
@@ -73,16 +54,16 @@ const CommentProvider = ({ children }) => {
     const updateComment = async comment => {
         try {
             const res = await clientAxios.put(`/comment/${comment._id}`, comment);
-            res && getComments();
+            res.status === 200 && getCommentsByProdId(comment.productId);
         } catch (error) {
             throw error;
         }
     }
 
-    const deleteComment = async commentId => {
+    const deleteComment = async comment => {
         try {
-            const res = await clientAxios.delete(`/comment/${commentId}`);
-            res && getComments();
+            const res = await clientAxios.delete(`/comment/${comment._id}`);
+            res.status === 200 && getCommentsByProdId(comment.productId);
         } catch (error) {
             throw error;
         }

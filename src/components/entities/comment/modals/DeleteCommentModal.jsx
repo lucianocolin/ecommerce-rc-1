@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import CommentContext from '../../../../context/comment/CommentContext';
 
 const DeleteCommentModal = ({ show, onHide }) => {
-    const { deleteComment , currentComment} = useContext(CommentContext);
+    const { deleteComment, currentComment } = useContext(CommentContext);
 
     const confirmDelete = () => {
         deleteComment(currentComment);

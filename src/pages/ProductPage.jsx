@@ -4,6 +4,7 @@ import ProdDetailInfo from "../components/entities/product/ProdDetailInfo";
 import ProdDetailComments from "../components/entities/product/ProdDetailComments";
 import { useEffect, useContext } from "react";
 import AdminProductsContext from "../context/admin/products/AdminProductsContext";
+import AdminUsersContext from '../context/admin/users/AdminUsersContext';
 
 const ProductPage = () => {
 
@@ -11,7 +12,7 @@ const ProductPage = () => {
 
     //luego borrar cuando se conecte con product list y sea enviado desde ahi el id
     useEffect(() => {
-        getProduct("63eeb89de727e6e76632e03e");
+        getProduct("63fbaefffa4480a5d80c4cc6");
     }, []);
 
     return (
