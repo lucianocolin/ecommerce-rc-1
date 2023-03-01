@@ -14,10 +14,8 @@ const CreateProductModal = ({ show, onHide }) => {
     price: '',
     stock: '',
     category: 'Indumentaria',
-
     isInOffer: false,
-    offerPrice: ''
-
+    offerPrice: 0
   }
 
   const [form, setForm] = useState(initialFormValues);
@@ -73,8 +71,8 @@ const CreateProductModal = ({ show, onHide }) => {
                onChange={handleChange} >
                 <option value="Adidas">Adidas</option>
                 <option value="Kappa">Kappa</option>
-                <option value="Beats">Nike</option>
-                <option value="Playstation">Puma</option>
+                <option value="Nike">Nike</option>
+                <option value="Puma">Puma</option>
                 <option value="Reebok">Reebok</option>
                 <option value="Topper">Topper</option>
                 <option value="Umbro">Umbro</option>

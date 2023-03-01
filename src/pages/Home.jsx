@@ -5,6 +5,8 @@ import { Carousel } from "react-bootstrap";
 import selesion1 from "../imgs/selesion1.jpg";
 import "../css/Home.css";
 import AdminProductsContext from "../context/admin/products/AdminProductsContext";
+import ProductsCard from "../components/common/ProductsCard";
+import HighlitedProducts from "../components/entities/HighlitedProducts";
 
 const Home = () => {
 
@@ -29,7 +31,7 @@ const Home = () => {
           {
             products.filter(product => product.isInOffer === true)
               .map((product, index)=>(
-              <Carousel.Item className="home-offers-slider-item">
+              <Carousel.Item key={index} className="home-offers-slider-item">
                 <div className="home-offers-slider-img">
                   <p className="home-offers-slider-perc">{numberToPercentage(product.price, product.offerPrice)}</p>
                   <img
@@ -45,6 +47,37 @@ const Home = () => {
           }
           </Carousel>
 
+      </div>
+
+      <div className="home-products-section">
+        <HighlitedProducts />
+        <h2>Indumentaria</h2>
+          <div className="home-products-individual-section">
+            {
+              products.filter(product => product.category === 'Indumentaria')
+                .map((product, index)=>(
+                  <ProductsCard 
+                  key={index}
+                  title={product.name}
+                  price={product.price}
+                  offerPrice={product.offerPrice} />
+                ))
+            }
+          </div>
+
+        <h2>Calzado</h2>
+          <div className="home-products-individual-section">
+            {
+              products.filter(product => product.category === 'Calzado')
+                .map((product, index)=>(
+                  <ProductsCard 
+                  key={index}
+                  title={product.name}
+                  price={product.price}
+                  offerPrice={product.offerPrice} />
+                ))
+            }
+          </div>
       </div>
     </>
   );
