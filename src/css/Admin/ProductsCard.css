@@ -1,0 +1,31 @@
+.products-card{
+  width: 18rem !important;
+}
+
+.products-card-title{
+  font-size: 1.4rem !important;
+}
+
+.products-card-all-prices{
+  font-size: 1.3rem;
+}
+
+.products-card-prices-container{
+  display: flex;
+  gap: 0.6rem;
+}
+
+.products-card-offerPrice{
+  text-decoration: line-through;
+}
+
+.products-card-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-card-highlighted-icon{
+  font-size: 2rem;
+  color: rgb(208, 196, 31);
+}

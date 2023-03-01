@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import AdminProductsContext from "../../../context/admin/products/AdminProductsContext";
@@ -13,12 +15,17 @@ const AdminProductsList = ({ data, openDeleteModal, openEditProductModal }) => {
     }
   };
 
-  const { getProduct } = useContext(AdminProductsContext);
+  const { getProduct, highlightProduct } = useContext(AdminProductsContext);
 
   return (
     <>
       <tr>
-        <td>{data.name}</td>
+        <td>{data.name}
+          {
+            data.isHighligted === true && 
+          <FontAwesomeIcon icon={faStar} className="highlight-product-icon"/>
+        }
+        </td>
         <td>{data.brand}</td>
         <td>{'$' + data.price}</td>
         <td>{data.stock}</td>
@@ -43,6 +50,11 @@ const AdminProductsList = ({ data, openDeleteModal, openEditProductModal }) => {
             }}
           >
             Eliminar
+          </Button>
+          <Button variant="warning" onClick={()=> highlightProduct(data)}>
+            {
+              data.isHighligted === false ? 'Destacar' : 'Quitar destacado'
+            }
           </Button>
         </td>
       </tr>

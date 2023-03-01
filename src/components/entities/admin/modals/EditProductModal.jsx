@@ -11,9 +11,9 @@ const EditProductModal = ({ show, onHide }) => {
     brand: 'Adidas',
     price: '',
     stock: '',
-    category: 'Consolas',
+    category: 'Indumentaria',
     isInOffer: false,
-    offerPrice: ''
+    offerPrice: 0
   };
 
   const [form, setForm] = useState(initialFormValues);
@@ -66,8 +66,13 @@ const EditProductModal = ({ show, onHide }) => {
               onChange={handleChange}
             >
               <option value="Adidas">Adidas</option>
-              <option value="Beats">Beats</option>
-              <option value="Playstation">Playstation</option>
+              <option value="Kappa">Kappa</option>
+              <option value="Nike">Nike</option>
+              <option value="Puma">Puma</option>
+              <option value="Reebok">Reebok</option>
+              <option value="Topper">Topper</option>
+              <option value="Umbro">Umbro</option>
+              <option value="Under Armour">Under Armour</option>
             </Form.Select>
           </Form.Group>
 
