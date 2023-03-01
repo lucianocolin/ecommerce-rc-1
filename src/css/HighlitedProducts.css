@@ -1,0 +1,26 @@
+.highlited-products-section{
+  width: 75%;
+  height: auto;
+  background-color: rgb(251, 243, 93);
+  margin: 2rem 0 4rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.highlited-products-title{
+  padding-top: 1.5rem;
+  color: white;
+  text-shadow: 1px 1px 8px black;
+}
+
+.highlited-products-cards-container{
+  display: flex;
+  width: 80%;
+  padding-bottom: 2rem;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
