@@ -1,8 +1,8 @@
-import React from 'react';
 import FavouriteProvider from './favourite/FavouriteProvider';
 import AdminProductsProvider from './admin/products/AdminProductsProvider';
 import AdminUsersProvider from './admin/users/AdminUsersProvider';
 import CommentProvider from './comment/CommentProvider';
+import SaleProvider from './sale/SaleProvider';
 
 const ParentContext = ({ children }) => {
     return (
@@ -10,7 +10,9 @@ const ParentContext = ({ children }) => {
             <AdminProductsProvider>
                 <AdminUsersProvider>
                     <CommentProvider>
-                        {children}
+                        <SaleProvider>
+                            {children}
+                        </SaleProvider>
                     </CommentProvider>
                 </AdminUsersProvider>
             </AdminProductsProvider>
