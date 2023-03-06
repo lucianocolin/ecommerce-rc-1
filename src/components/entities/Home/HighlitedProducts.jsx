@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import AdminProductsContext from "../../context/admin/products/AdminProductsContext";
-import "../../css/HighlitedProducts.css";
-import ProductsCard from "../common/ProductsCard";
+import AdminProductsContext from "../../../context/admin/products/AdminProductsContext";
+import "../../../css/Home/HighlitedProducts.css";
+import ProductsCard from "../../common/ProductsCard";
 
 const HighlitedProducts = () => {
   const { products, getProducts } = useContext(AdminProductsContext);
