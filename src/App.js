@@ -8,6 +8,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Layout from './components/common/Layout';
 import AdminUsers from './pages/AdminUsers';
 import ProductPage from './pages/ProductPage';
+import SaleNewPage from './pages/SaleNewPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path='/admin-products' element={<AdminProducts />} />
               <Route path='/admin-users' element={<AdminUsers />} />
               <Route path='/product' element={<ProductPage />} />
+              <Route path='/sale-new' element={<SaleNewPage />} />
             </Routes>
           </Layout>
         </Router>
