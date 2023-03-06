@@ -1,0 +1,39 @@
+.categories-menu-container{
+  padding: 3rem;
+  background-color: rgb(255, 255, 255);
+  width: 75%;
+  height: auto;
+  margin: 2rem 0 4rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.categories-menu-categories-container{
+  padding-top: 2rem;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 7.5rem;
+  row-gap: 3rem;
+}
+
+.categories-menu-category-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.categories-menu-category-container p{
+  font-size: 2rem;
+  font-family: 'Bebas Neue';
+  margin: 0;
+}
+
+.categories-menu-icon{
+  font-size: 7rem;
+  color: black;
+}

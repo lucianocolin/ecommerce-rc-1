@@ -1,12 +1,11 @@
-
-
 import React, { useContext, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import selesion1 from "../imgs/selesion1.jpg";
-import "../css/Home.css";
+import "../css/Home/Home.css";
 import AdminProductsContext from "../context/admin/products/AdminProductsContext";
-import ProductsCard from "../components/common/ProductsCard";
-import HighlitedProducts from "../components/entities/HighlitedProducts";
+import HighlitedProducts from "../components/entities/Home/HighlitedProducts";
+import CategoriesMenu from "../components/entities/Home/CategoriesMenu";
+import CategoriesList from "../components/entities/Home/CategoriesList";
 
 const Home = () => {
 
@@ -51,33 +50,10 @@ const Home = () => {
 
       <div className="home-products-section">
         <HighlitedProducts />
-        <h2>Indumentaria</h2>
-          <div className="home-products-individual-section">
-            {
-              products.filter(product => product.category === 'Indumentaria')
-                .map((product, index)=>(
-                  <ProductsCard 
-                  key={index}
-                  title={product.name}
-                  price={product.price}
-                  offerPrice={product.offerPrice} />
-                ))
-            }
-          </div>
-
-        <h2>Calzado</h2>
-          <div className="home-products-individual-section">
-            {
-              products.filter(product => product.category === 'Calzado')
-                .map((product, index)=>(
-                  <ProductsCard 
-                  key={index}
-                  title={product.name}
-                  price={product.price}
-                  offerPrice={product.offerPrice} />
-                ))
-            }
-          </div>
+        
+        <CategoriesList />
+        
+        <CategoriesMenu />
       </div>
     </>
   );
