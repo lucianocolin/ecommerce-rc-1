@@ -15,9 +15,9 @@ const ProductsCard = ({ title, price, offerPrice, isHighligted }) => {
           {
             offerPrice > 0 ? 
               <div className='products-card-prices-container'>
-                <div className='products-card-price'>{price}</div> <div>{offerPrice}</div>
+                <div className='products-card-offerPrice'>{offerPrice}</div> <div className='products-card-price'>{price}</div>
               </div>
-               : <div>{price}</div>
+               : <div className='products-card-price'>{price}</div>
           }
         </Card.Text>
       </Card.Body>
