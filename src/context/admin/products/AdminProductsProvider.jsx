@@ -74,6 +74,20 @@ const AdminProductsProvider = ({ children }) => {
     }
   }
 
+  const highlightProduct = async (product) =>{
+    try {
+      if(product.isHighligted === false){
+        product.isHighligted = true
+      } else if(product.isHighligted === true){
+        product.isHighligted = false
+      }
+      const res = await clientAxios.put(`/product/${product._id}`, product)
+      res && getProducts();
+    } catch (error) {
+      throw error;
+    }
+  }
+
   return (
     <AdminProductsContext.Provider value={{
       ...values,
@@ -82,7 +96,8 @@ const AdminProductsProvider = ({ children }) => {
       createProduct,
       updateProduct,
       deleteProduct,
-      getProductsByProdSearched
+      getProductsByProdSearched,
+      highlightProduct
     }}>
       {children}
     </AdminProductsContext.Provider>
