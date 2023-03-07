@@ -1,0 +1,14 @@
+.home-products-individual-section{
+  display: flex;
+  justify-content: center;
+  column-gap: 4rem;
+  row-gap: 2rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 4rem;
+  width: 75%;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem 0;
+
+}

@@ -1,6 +1,7 @@
 .admin-products-list-btn-section{
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 0.5rem;
 }
 
 td{

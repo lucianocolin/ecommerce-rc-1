@@ -108,8 +108,14 @@ const EditProductModal = ({ show, onHide }) => {
               value={category}
               onChange={handleChange}
             >
-              <option value="Indumentaria">Indumentaria</option>
-              <option value="Calzado">Calzado</option>
+                <option value="Zapatillas">Zapatillas</option>
+                <option value="Ojotas">Ojotas</option>
+                <option value="Botines">Botines</option>
+                <option value="Remeras">Remeras</option>
+                <option value="Camisetas">Camisetas</option>
+                <option value="Shorts">Shorts</option>
+                <option value="Pantalones">Pantalones</option>
+                <option value="Buzos y Camperas">Buzos y Camperas</option>
             </Form.Select>
           </Form.Group>
 
