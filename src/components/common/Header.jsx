@@ -7,13 +7,20 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faGlobe, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import NavbarSearch from './NavbarSearch';
+import { useContext } from 'react';
+import AdminProductsContext from '../../context/admin/products/AdminProductsContext';
 
 const Header = () => {
+
+    const { filterByCategory, categoryFiltered } = useContext(AdminProductsContext)
+
     const navigate = useNavigate(); 
 
     const goToPage = page => {
         navigate(page);
     }
+
+    console.log(categoryFiltered)
 
     return (
         <>
@@ -29,9 +36,14 @@ const Header = () => {
                         <Nav.Link onClick={() => goToPage('/favourites')}>Favorites</Nav.Link>
 
                         <NavDropdown title="Categories" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#">T-Shirts</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Pants</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Shoes</NavDropdown.Item>
+                        <NavDropdown.Item href="/category-page" onClick={()=> filterByCategory('Zapatillas')}>Zapatillas</NavDropdown.Item>
+                        <NavDropdown.Item href="/category-page">Ojotas</NavDropdown.Item>
+                        <NavDropdown.Item href="/category-page">Botines</NavDropdown.Item>
+                        <NavDropdown.Item href="/category-page">Remeras</NavDropdown.Item>
+                        <NavDropdown.Item href="/category-page">Camisetas</NavDropdown.Item>
+                        <NavDropdown.Item href="/category-page">Shorts</NavDropdown.Item>
+                        <NavDropdown.Item href="/category-page">Pantalones</NavDropdown.Item>
+                        <NavDropdown.Item href="/category-page">Buzos y Camperas</NavDropdown.Item>
                         </NavDropdown>
 
                     </Nav>
