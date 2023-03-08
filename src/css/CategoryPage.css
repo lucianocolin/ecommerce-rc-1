@@ -1,0 +1,31 @@
+.category-page-title{
+  padding-top: 2rem;
+  font-family: 'Bebas Neue';
+  font-size: 5rem;
+}
+
+.category-page-links-container{
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.category-page-links-container h3{
+  font-family: 'Bebas Neue';
+}
+
+.category-page-link{
+  cursor: pointer;
+}
+
+.category-page-categories-container{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 2rem 5rem;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
