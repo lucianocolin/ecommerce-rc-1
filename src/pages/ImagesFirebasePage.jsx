@@ -4,6 +4,9 @@ import { getDownloadURL, ref, listAll } from '@firebase/storage';
 
 const ImagesFirebasePage = () => {
 
+    // Seguir subiendo archivos...
+    // https://console.firebase.google.com/u/0/project/ecommerce-rc/storage/ecommerce-rc.appspot.com/files?hl=es-419
+
     const [images3, setImages3] = useState([])
 
     let photos = [{ url: "", position: 0 }]
@@ -14,7 +17,8 @@ const ImagesFirebasePage = () => {
 
     const getImages = async (id) => {
         try {
-            const imagesRef = ref(storage, `publications/${id}`);
+            //const imagesRef = ref(storage, `publications/${id}`);
+            const imagesRef = ref(storage, `products`);
             const response = await listAll(imagesRef)
             const res = []
             for (let item of response.items) {
