@@ -4,15 +4,17 @@ import ProdDetailInfo from "../components/entities/product/ProdDetailInfo";
 import ProdDetailComments from "../components/entities/product/ProdDetailComments";
 import { useEffect, useContext } from "react";
 import AdminProductsContext from "../context/admin/products/AdminProductsContext";
-import AdminUsersContext from '../context/admin/users/AdminUsersContext';
+import ImageContext from '../context/image/ImageContext';
 
 const ProductPage = () => {
 
-    const { getProduct, getProducts, products } = useContext(AdminProductsContext);
+    const { getProduct } = useContext(AdminProductsContext);
+    const { getProdDetailImages } = useContext(ImageContext);
 
     //luego borrar cuando se conecte con product list y sea enviado desde ahi el id
     useEffect(() => {
         getProduct("63fbaefffa4480a5d80c4cc6");
+        getProdDetailImages("63fbaefffa4480a5d80c4cc6");
     }, []);
 
     return (

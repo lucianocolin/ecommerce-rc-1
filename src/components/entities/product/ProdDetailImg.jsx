@@ -1,10 +1,13 @@
-import React from 'react';
-import lenovo1 from '../../../assets/imgs/lenovo1.png';
+import { useContext } from 'react';
+import ImageContext from '../../../context/image/ImageContext';
 
 const ProdDetailImg = () => {
+
+    const { prodDetailImages } = useContext(ImageContext);
+
     return (
         <>
-            <img src={lenovo1} className='img-thumbnail' alt='lenovo1' />
+            <img src={prodDetailImages[0]} className='img-thumbnail' alt='' />
         </>
     );
 };
