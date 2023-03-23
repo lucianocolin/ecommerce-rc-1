@@ -8,14 +8,19 @@ import ImageContext from '../context/image/ImageContext';
 
 const ProductPage = () => {
 
-    const { getProduct } = useContext(AdminProductsContext);
+    const { getProduct, currentProduct } = useContext(AdminProductsContext);
     const { getProdDetailImages } = useContext(ImageContext);
 
     //luego borrar cuando se conecte con product list y sea enviado desde ahi el id
     useEffect(() => {
         getProduct("63fbaefffa4480a5d80c4cc6");
-        getProdDetailImages("63fbaefffa4480a5d80c4cc6");
     }, []);
+
+    useEffect(() => {
+        currentProduct._id
+            && getProdDetailImages("63fbaefffa4480a5d80c4cc6");
+    }, [currentProduct._id]);
+
 
     return (
         <>
