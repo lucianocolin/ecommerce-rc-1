@@ -7,15 +7,17 @@ import SaleNewTabConfirm from '../components/entities/sale/new/SaleNewTabConfirm
 import SaleCard from '../components/entities/sale/card/SaleCard';
 import SaleContext from '../context/sale/SaleContext';
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const SaleNewPage = () => {
 
-    const { getSaleUnpaidByUserLoggedIn, saleUnpaid } = useContext(SaleContext);
+    const navigate = useNavigate();
+
+    const { getSaleUnpaidByUserLoggedIn, saleUnpaid, deleteProductsOfSaleUnpaid } = useContext(SaleContext);
 
     const [tabActive, setTabActive] = useState('ubication');
 
     useEffect(() => {
-        // Aun solo trae el unico unpaid sin importar usuario
         getSaleUnpaidByUserLoggedIn();
     }, []);
 
@@ -29,9 +31,9 @@ const SaleNewPage = () => {
             confirmButtonText: 'Confirm',
         }).then((result) => {
             if (result.isConfirmed) {
-                // Eliminar registros conectados
+                deleteProductsOfSaleUnpaid(saleUnpaid);
                 Swal.fire('Purchase canceled', 'success');
-                // Redirigir a ultima pantalla... 
+                navigate("/home");
             } 
         })
     }

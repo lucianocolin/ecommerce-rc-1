@@ -67,10 +67,22 @@ const SaleProvider = ({ children }) => {
         }
     }
 
+    const deleteProductsOfSaleUnpaid = async saleUnpaid => {
+        try {
+            const res = await clientAxios.delete(`/sale/${saleUnpaid._id}`);
+            if (res.status && res.data.sale) {
+                setValues({ ...values, saleUnpaid: res.data.sale });
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
+
     return (
         <SaleContext.Provider value={{
             ...values,
             getSaleUnpaidByUserLoggedIn,
+            deleteProductsOfSaleUnpaid,
             getSale,
             createSale,
             updateSale,
