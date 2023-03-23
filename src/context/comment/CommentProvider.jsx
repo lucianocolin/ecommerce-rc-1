@@ -41,12 +41,9 @@ const CommentProvider = ({ children }) => {
                         getUserProfileImage(comment.userSend.userId);
                         comment.userSend.userProfImg = userProfImg;
                     });
+                    // Setting comments with all data
+                    setValues({ ...values, comments: res.data.comments });
                 }
-                // Setting comments with all data
-                setValues({
-                    ...values,
-                    comments: res.data.comments
-                });
             }
         } catch (error) {
             throw error;

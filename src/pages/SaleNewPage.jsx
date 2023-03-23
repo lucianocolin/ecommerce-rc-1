@@ -15,6 +15,7 @@ const SaleNewPage = () => {
     const [tabActive, setTabActive] = useState('ubication');
 
     useEffect(() => {
+        // Aun solo trae el unico unpaid sin importar usuario
         getSaleUnpaidByUserLoggedIn();
     }, []);
 
@@ -28,6 +29,7 @@ const SaleNewPage = () => {
             confirmButtonText: 'Confirm',
         }).then((result) => {
             if (result.isConfirmed) {
+                // Eliminar registros conectados
                 Swal.fire('Purchase canceled', 'success');
                 // Redirigir a ultima pantalla... 
             } 

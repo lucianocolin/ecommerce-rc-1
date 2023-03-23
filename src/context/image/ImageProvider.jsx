@@ -8,12 +8,12 @@ const ImageProvider = ({ children }) => {
     // Firebase: https://console.firebase.google.com/u/0/project/ecommerce-rc/overview?hl=es-419
 
     const initialValues = {
-        prodDetailImages: [],
+        currentProductImages: [],
         userProfImg: {}
     }
     const [values, setValues] = useState(initialValues);
 
-    const getProdDetailImages = async productId => {
+    const getProductImages = async productId => {
         try {
             const imagesRef = ref(storage, `products/${productId}`);
             const response = await listAll(imagesRef);
@@ -22,7 +22,7 @@ const ImageProvider = ({ children }) => {
                 const url = await getDownloadURL(item);
                 resImages.push(url);
             }
-            setValues({ ...values, prodDetailImages: resImages });
+            setValues({ ...values, currentProductImages: resImages });
         } catch (error) {
             throw error;
         }
@@ -46,7 +46,7 @@ const ImageProvider = ({ children }) => {
     return (
         <ImageContext.Provider value={{
             ...values,
-            getProdDetailImages,
+            getProductImages,
             getUserProfileImage
         }}>
             {children}

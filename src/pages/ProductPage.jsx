@@ -9,7 +9,7 @@ import ImageContext from '../context/image/ImageContext';
 const ProductPage = () => {
 
     const { getProduct, currentProduct } = useContext(AdminProductsContext);
-    const { getProdDetailImages } = useContext(ImageContext);
+    const { getProductImages } = useContext(ImageContext);
 
     //luego borrar cuando se conecte con product list y sea enviado desde ahi el id
     useEffect(() => {
@@ -18,7 +18,7 @@ const ProductPage = () => {
 
     useEffect(() => {
         currentProduct._id
-            && getProdDetailImages("63fbaefffa4480a5d80c4cc6");
+            && getProductImages("63fbaefffa4480a5d80c4cc6");
     }, [currentProduct._id]);
 
 
