@@ -21,8 +21,9 @@ const ProdDetailComments = () => {
     const { getCommentsByProdId, comments, getComment } = useContext(CommentContext);
 
     useEffect(() => {
-        currentProduct._id && getCommentsByProdId(currentProduct._id);
-    }, [currentProduct._id])
+        currentProduct._id
+            && getCommentsByProdId(currentProduct._id);
+    }, [currentProduct._id]);
 
     return (
         <>

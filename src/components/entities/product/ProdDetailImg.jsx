@@ -1,13 +1,16 @@
 import { useContext } from 'react';
+import { Image } from 'react-bootstrap';
 import ImageContext from '../../../context/image/ImageContext';
 
 const ProdDetailImg = () => {
 
-    const { prodDetailImages } = useContext(ImageContext);
+    const { currentProductImages } = useContext(ImageContext);
 
     return (
         <>
-            <img src={prodDetailImages[0]} className='img-thumbnail' alt='' />
+            <div style={{ height: 'auto', width: 450 }}>
+                <Image src={currentProductImages[0]} />
+            </div>
         </>
     );
 };
