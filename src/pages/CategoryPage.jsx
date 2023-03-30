@@ -13,6 +13,7 @@ const CategoryPage = () => {
 
   const allProducts = products.map((product, index) => (
     <ProductsCard
+      photo={product.photo}
       title={product.name}
       price={product.price}
       offerPrice={product.offerPrice}
