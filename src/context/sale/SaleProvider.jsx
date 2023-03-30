@@ -1,8 +1,11 @@
 import SaleContext from './SaleContext';
 import clientAxios from '../../config/axios';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import ImageContext from '../image/ImageContext';
 
 const SaleProvider = ({ children }) => {
+
+    const { getProductImages, currentProductImages } = useContext(ImageContext);
 
     const initialState = {
         sales: [],
@@ -51,7 +54,25 @@ const SaleProvider = ({ children }) => {
     const getSaleUnpaidByUserLoggedIn = async () => {
         try {
             const res = await clientAxios.get('/sale');
-            res && setValues({ ...values, saleUnpaid: res.data.sale });
+            if (res.status === 200 && res.data.sale.products && res.data.sale.products.length > 0) {
+                // Carga de imagen por cada producto
+                res.data.sale.products.map(prod => {
+                    getProductImages(prod.productId);
+                    prod.photo = currentProductImages[0];
+                });
+                setValues({ ...values, saleUnpaid: res.data.sale });
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    const deleteProductsOfSaleUnpaid = async saleUnpaid => {
+        try {
+            const res = await clientAxios.delete(`/sale/${saleUnpaid._id}`);
+            if (res.status && res.data.sale) {
+                setValues({ ...values, saleUnpaid: res.data.sale });
+            }
         } catch (error) {
             throw error;
         }
@@ -61,6 +82,7 @@ const SaleProvider = ({ children }) => {
         <SaleContext.Provider value={{
             ...values,
             getSaleUnpaidByUserLoggedIn,
+            deleteProductsOfSaleUnpaid,
             getSale,
             createSale,
             updateSale,

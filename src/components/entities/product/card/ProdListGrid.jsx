@@ -1,4 +1,5 @@
-import { Table } from 'react-bootstrap';
+import { Table, Image } from 'react-bootstrap';
+import imgDoesntExist from '../../../../assets/imgs/imgDoesntExist.png';
 
 const ProdListGrid = ({ products }) => {
 
@@ -8,6 +9,7 @@ const ProdListGrid = ({ products }) => {
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Photo</th>
                         <th>Description</th>
                         <th>Brand</th>
                         <th>Price</th>
@@ -19,6 +21,16 @@ const ProdListGrid = ({ products }) => {
                             products.map((product, index) => (
                                 <tr key={index}>
                                     <td>{index + 1}</td>
+                                    <td>
+                                        <div style={{ height: 'auto', width: 75 }} >
+                                            <Image src={
+                                                product.photo && Object.entries(product.photo).length !== 0 ?
+                                                    product.photo
+                                                    :
+                                                    imgDoesntExist
+                                            } />
+                                        </div>
+                                    </td>
                                     <td>{product.name}</td>
                                     <td>{product.brand}</td>
                                     <td>${product.price}</td>

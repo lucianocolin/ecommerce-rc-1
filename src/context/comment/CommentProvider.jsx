@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import clientAxios from '../../config/axios';
 import CommentContext from './CommentContext';
+import ImageContext from '../image/ImageContext';
 
 const CommentProvider = ({ children }) => {
+
+    const { getUserProfileImage, userProfImg } = useContext(ImageContext);
 
     const initialValues = {
         comments: [],
@@ -32,10 +35,15 @@ const CommentProvider = ({ children }) => {
         try {
             const res = await clientAxios.get('/comment', { params: { productId: productId } });
             if (res.status === 200) {
-                setValues({
-                    ...values,
-                    comments: res.data.comments
-                });
+                // Adding userImg in witch comment
+                if (res.data.comments && res.data.comments.length > 0) {
+                    res.data.comments.map(comment => {
+                        getUserProfileImage(comment.userSend.userId);
+                        comment.userSend.userProfImg = userProfImg;
+                    });
+                    // Setting comments with all data
+                    setValues({ ...values, comments: res.data.comments });
+                }
             }
         } catch (error) {
             throw error;
